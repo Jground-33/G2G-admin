@@ -1,0 +1,51 @@
+.Login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: darkgray;
+}
+
+.Login h1 {
+  margin: 25vh 0 20px 0;
+}
+
+.inputGroup {
+  margin: 7px 0;
+}
+
+.inputGroup label {
+  margin-left: 10px;
+}
+
+.inputContainer {
+  background: #FFFFFF;
+  box-shadow: #E19C8C  0px 0px 10px 2px;
+  /* border: 4px solid #E19C8C; */
+  /* border-radius: 36px; */
+  height: 32px;
+  width: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer input {
+  width: 230px;
+}
+
+.darkButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 264px;
+  height: 72px;
+  border-radius: 36px;
+  background-color: #E19C8C;
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 800;
+  margin: 40px 0;
+}

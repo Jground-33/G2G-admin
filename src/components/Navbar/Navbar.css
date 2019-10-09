@@ -1,0 +1,17 @@
+.navbar {
+  height: 50px;
+  box-shadow: #E19C8C  0px 0px 10px 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-title {
+  margin: 0;
+  position: absolute;
+}
+
+.logout{
+  margin-right: 3vw;
+  margin-left: auto;
+} 
