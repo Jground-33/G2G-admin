@@ -6,25 +6,26 @@ function setToken(token) {
   }
 }
 
-function getToken() {
-  let token = localStorage.getItem('auth-token');
-  // if (token) {
-  //   const payload = JSON.parse(atob(token.split('.')[1]));
-  //   if (payload.exp < Date.now() / 1000) {
-  //     localStorage.removeItem('auth-token');
-  //     token = null;
-  //   }
-  // }
-  return token;
-}
+// function getToken() {
+//   let token = localStorage.getItem('auth-token');
+//   // if (token) {
+//   //   const payload = JSON.parse(atob(token.split('.')[1]));
+//   //   if (payload.exp < Date.now() / 1000) {
+//   //     localStorage.removeItem('auth-token');
+//   //     token = null;
+//   //   }
+//   // }
+//   return token;
+// }
 
 function getUserFromToken() {
-  const token = getToken();
+  // const token = getToken();
+  let token = localStorage.getItem('auth-token');
   return token ? JSON.parse(atob(token.split('.')[1])).userId : null;
 }
 
 export default {
   setToken,
-  getToken,
+  // getToken,
   getUserFromToken,
 }

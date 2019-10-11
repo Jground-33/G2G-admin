@@ -1,0 +1,21 @@
+.bathroom-container {
+  box-shadow: #E19C8C  0px 0px 3px 0px;
+  margin-top: 5vh;
+  padding: 1vw;
+}
+
+.edit-button {
+  background-color: #83DADF;
+}
+
+.edit-button:hover {
+  background-color: #51989C;
+}
+
+.delete-button {
+  background-color: #DD7979;
+}
+
+.delete-button:hover {
+  background-color: #BB5757;
+}

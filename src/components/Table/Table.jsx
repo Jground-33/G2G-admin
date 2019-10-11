@@ -1,37 +1,84 @@
-import React from 'react'
+import React from 'react';
+import { useQuery } from 'react-apollo';
+import gql from 'graphql-tag';
+import './Table.css'
 
-const Table = () => {
+const GET_CLOSEST_BATHROOMS = gql`
+    query getClosest($currentLat:Float!, $currentLng: Float!) {
+      getClosest(currentLat: $currentLat, currentLng: $currentLng) {
+        bathrooms {
+          id
+          businessName
+          address
+          description
+          category
+          genderNeutral
+          lat
+          lng
+          changingStations
+          purchaseRequired
+          accessibleStall
+          singleOccupancy
+        }
+      }
+    }
+  `
+
+const Table = props => {
+  const { loading, error, data } = useQuery(GET_CLOSEST_BATHROOMS, { fetchPolicy: 'no-cache',
+    variables: { 
+      currentLat: 30.267153, 
+      currentLng: -97.743057
+    } 
+  });
+  
+  const handleClick = id => {
+    props.history.push(`/bathroom/${id}`)
+  }
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   return ( 
     <div className='table-container'>
       <table className='centered highlight'>
         <thead>
           <tr>
-              <th>Name</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+            <th>Business Name</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>Gender Neutral</th>
+            <th>Category</th>
+            <th>Latitude, Longitude</th>
+            <th>Changing Stations</th>
+            <th>Purchase Required</th>
+            <th>Accessible Stall</th>
+            <th>Single Occupancy</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
+        {data.getClosest.bathrooms.map(bathroom => {
+            return (
+              <tr onClick={() => handleClick(bathroom.id)}>
+                <td>{bathroom.businessName}</td>
+                <td>{bathroom.address}</td>
+                <td>{bathroom.description}</td>
+                <td>{bathroom.genderNeutral}</td>
+                <td>{bathroom.category}</td>
+                <td>{`${bathroom.lat}, ${bathroom.lng}`}</td>
+                <td>{bathroom.changingStations ? 'True' : 'False'}</td>
+                <td>{bathroom.purchaseRequired ? 'True' : 'False'}</td>
+                <td>{bathroom.accessibleStall  ? 'True' : 'False'}</td>
+                <td>{bathroom.singleOccupancy  ? 'True' : 'False'}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>
    );
 }
  
+
 export default Table;

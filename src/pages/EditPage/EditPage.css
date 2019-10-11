@@ -1,0 +1,15 @@
+.text-area{
+  height: 100px;
+}
+
+.bool-switch {
+  text-align: center;
+}
+
+.update-button {
+  background-color: #83DADF;
+}
+
+.update-button:hover{
+  background-color: #51989C;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './LoginPage.module.css';
+import styles from './Login.module.css';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import userService from '../../services/userService';
