@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './EditPage.css';
 
-const EditPage = ({data}) => {
+const EditPage = ({data, setEditSelected}) => {
 
 const [ formState , setFormState] = useState({})
   
-
+const handleSubmit = event => {
+  event.preventDefault();
+  setEditSelected(false);
+}
   return ( 
     <div className="container">
-      <div className='table-container'>
+      <form className="form">
 
         <div className="row">
           <form className="col s12">
@@ -146,7 +149,7 @@ const [ formState , setFormState] = useState({})
           </form>
         </div>
 
-      </div>
+      </form>
     </div>
    );
 }

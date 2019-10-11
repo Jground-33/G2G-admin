@@ -59,7 +59,10 @@ if(error) return <div>{error.message}</div>
           // refactor to Routes
       <Link className="btn" to={`/bathroom/edit/${props.match.params.id}`}>EDIT</Link> */}
 
-      {editSelected ? <EditPage data={data} /> : 
+      {editSelected ? <EditPage 
+      data={data} 
+      setEditSelected={setEditSelected}
+      /> : 
 
           <table className='centered highlight'>
             <thead>
